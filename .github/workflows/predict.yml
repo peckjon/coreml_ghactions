@@ -20,7 +20,10 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: checkout master
-      run: git checkout github.com/peckjon/coreml_ghactions.git
+      run: |
+        git show-ref
+        git checkout master
+        git show-ref
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
@@ -33,5 +36,5 @@ jobs:
       run: |
         python predict.py
         git commit -m "updated predictions" output.csv
-        git push origin master
+        git push -u origin master --force
 
