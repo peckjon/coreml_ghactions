@@ -6,6 +6,7 @@ on:
     - .github/workflows/predict.yml
     - input.csv
     - predict.py
+    - pricing.mlmodel
 
 jobs:
   build:
