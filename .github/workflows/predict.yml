@@ -28,8 +28,9 @@ jobs:
         python -m pip install --upgrade pip
         pip install coremltools
     - name: Run prediction
+      run: python predict.py
+    - name: Commit changed output
       run: |
-        python predict.py
         git commit -m "updated predictions" output.csv
-        git push -u origin HEAD
+        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git"
 
