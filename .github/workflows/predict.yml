@@ -18,8 +18,9 @@ jobs:
         python-version: [3.6]
 
     steps:
-    - name: check out master
-      run: git checkout master
+    - uses: actions/checkout@v1
+    - name: checkout master
+      run: git checkout github.com/peckjon/coreml_ghactions.git
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
