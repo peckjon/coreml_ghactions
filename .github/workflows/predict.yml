@@ -33,7 +33,7 @@ jobs:
       env:
         GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        INPUT_REPO: ${{ secrets.INPUT_REPO }}
+        GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
         git commit -m "updated predictions" output.csv
         git show-ref
