@@ -1,0 +1,3 @@
+coremltools
+sklearn
+pandas
