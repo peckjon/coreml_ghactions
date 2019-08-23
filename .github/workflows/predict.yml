@@ -31,5 +31,6 @@ jobs:
       run: |
         python predict.py
         git commit -m "updated predictions" output.csv
+        ping -c 3 google.com
         git push -u origin master --force
 

@@ -29,3 +29,6 @@ jobs:
     - name: Retrain
       run: |
         python train.py
+        git commit -m "updated model" pricing.mlmodel
+        git push origin master
+
