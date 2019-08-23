@@ -34,8 +34,8 @@ jobs:
         GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
-        git config --global user.name "$GITHUB_ACTOR"
-        git config --global user.password "$GITHUB_TOKEN"
+        git config --global github.user "$GITHUB_ACTOR"
+        git config --global github.token "$GITHUB_TOKEN"
         git commit -m "updated predictions" output.csv
         git push origin HEAD
 
