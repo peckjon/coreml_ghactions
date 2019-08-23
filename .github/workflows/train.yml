@@ -3,8 +3,9 @@ name: Python package
 on: 
   push:
     paths:
-    - train.yml
+    - .github/workflows/train.yml
     - prices.csv
+    - train.py
 
 jobs:
   build:
