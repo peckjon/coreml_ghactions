@@ -1,6 +1,9 @@
 name: Python package
 
-on: [push]
+on: 
+  push:
+    paths:
+    - input.csv
 
 jobs:
   build:
