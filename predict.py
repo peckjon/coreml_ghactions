@@ -11,6 +11,7 @@ def main():
             for row in csv_reader:
                 sqft = row[0]
                 price = model.predict({'sqft': int(row[0])})['price']
+                print([sqft, int(price)])
                 csv_writer.writerow([sqft, int(price)])
 
 
