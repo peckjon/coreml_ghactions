@@ -31,5 +31,5 @@ jobs:
       run: |
         python predict.py
         git commit -m "updated predictions" output.csv
-        git push -u origin master
+        git push -u origin master --force
 
