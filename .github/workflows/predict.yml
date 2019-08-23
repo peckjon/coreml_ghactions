@@ -32,5 +32,5 @@ jobs:
     - name: Commit changed output
       run: |
         git commit -m "updated predictions" output.csv
-        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git"
+        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git" HEAD
 
