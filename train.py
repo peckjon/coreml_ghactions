@@ -9,6 +9,7 @@ def main():
     model.fit(data[["sqft"]], data["price"])
     coreml_model = convert(model, "sqft", "price")
     coreml_model.save('pricing.mlmodel')
+    print('Saved pricing.mlmodel')
 
 
 if __name__ == "__main__":
