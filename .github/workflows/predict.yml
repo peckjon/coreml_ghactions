@@ -30,3 +30,5 @@ jobs:
     - name: Run prediction
       run: |
         python predict.py
+        git commit -m "updated predictions" output.csv
+
