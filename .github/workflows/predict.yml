@@ -31,6 +31,5 @@ jobs:
       run: |
         python predict.py
         git commit -m "updated predictions" output.csv
-        git remote add origin "github.com/peckjon/coreml_ghactions.git"
-        git push origin master
+        git push -u origin master
 
