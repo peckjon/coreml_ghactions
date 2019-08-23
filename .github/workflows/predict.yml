@@ -31,6 +31,5 @@ jobs:
       run: |
         python predict.py
         git commit -m "updated predictions" output.csv
-        echo "${GITHUB_REF:11}"
-        git push origin "${GITHUB_REF:11}"
+        git push -u origin HEAD
 
