@@ -36,5 +36,5 @@ jobs:
         GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
         git commit -m "updated predictions" output.csv
-        git push origin master
+        git push origin HEAD
 
