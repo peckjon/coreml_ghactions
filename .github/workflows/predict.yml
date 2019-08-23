@@ -35,8 +35,8 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       run: |
         cat .git/config
-        git config user.name "$GITHUB_ACTOR"
-        git config user.token "$GITHUB_TOKEN"
+        git config --global user.name "$GITHUB_ACTOR"
+        git config --global user.token "$GITHUB_TOKEN"
         git commit -m "updated predictions" output.csv
         git push origin HEAD
 
