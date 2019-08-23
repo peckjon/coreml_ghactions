@@ -30,10 +30,14 @@ jobs:
     - name: Run predictions
       run: python predict.py
     - name: Commit changed output
+      env:
+        GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
         git commit -m "updated predictions" output.csv
         git branch my_updates
         git checkout master
         git merge my_updates
-        git push origin HEAD
+        git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git" origin/HEAD
 
