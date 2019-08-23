@@ -36,6 +36,5 @@ jobs:
         GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
         git commit -m "updated predictions" output.csv
-        git show-ref
         git push "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$INPUT_REPO.git" HEAD
 
