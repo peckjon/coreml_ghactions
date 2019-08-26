@@ -1,6 +1,6 @@
 ## Training and Running CoreML Models using GitHub Actions
 
-Apple's [CoreML](https://developer.apple.com/documentation/coreml]) provides a way to run model predictions on iOS and OSX. Some parts of the libarary, such as the [model conversion tools](https://developer.apple.com/documentation/coreml/converting_trained_models_to_core_ml), can be run on non-Apple platforms, but the [prediction methods](https://developer.apple.com/documentation/coreml/mlmodel#2880473) will fail unless run on an iPhone (iOS) or Mac (OSX). This can present a problem for datascientists and developers without access to an Apple device.
+Apple's [CoreML](https://developer.apple.com/documentation/coreml) provides a way to run model predictions on iOS and OSX. Some parts of the libarary, such as the [model conversion tools](https://developer.apple.com/documentation/coreml/converting_trained_models_to_core_ml), can be run on non-Apple platforms, but the [prediction methods](https://developer.apple.com/documentation/coreml/mlmodel#2880473) will fail unless run on an iPhone (iOS) or Mac (OSX). This can present a problem for datascientists and developers without access to an Apple device.
 
 Fortunately, [GitHub Actions](https://github.com/features/actions) provides macOS as a [virtual machine type](https://help.github.com/en/articles/workflow-syntax-for-github-actions#jobsjob_idruns-on) for running jobs. This makes it possible for developers to run CoreML predictions from inside a GitHub Actions workflow.
 
