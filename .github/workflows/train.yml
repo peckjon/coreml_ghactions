@@ -27,9 +27,10 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r requirements.txt
     - name: Retrain
-      run: |
-        python train.py
-    - name: Commit changed model
+      run: python train.py
+    - name: Run predictions
+      run: python predict.py
+    - name: Commit changed model and output
       env:
         GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
@@ -37,5 +38,6 @@ jobs:
       run: |
         git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
         git commit -m "updated model" pricing.mlmodel
+        git commit -m "updated predictions" output.csv
         git push origin HEAD:master
 
