@@ -29,7 +29,7 @@ jobs:
         pip install coremltools
     - name: Prepare detached HEAD
       run: |
-        git merge master
+        git merge origin/master
     - name: Run predictions
       run: python predict.py
     - name: Commit changed output
