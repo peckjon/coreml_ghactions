@@ -35,5 +35,5 @@ jobs:
     - name: Commit changed output
       run: |
         git commit -m "updated predictions" output.csv
-        git push --set-upstream origin master
+        git push --set-upstream origin/master
 
