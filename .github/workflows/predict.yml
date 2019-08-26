@@ -34,7 +34,6 @@ jobs:
       run: python predict.py
     - name: Commit changed output
       run: |
-        git status
         git commit -m "updated predictions" output.csv
         git push --set-upstream origin master
 
