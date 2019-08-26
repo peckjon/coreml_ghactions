@@ -30,11 +30,11 @@ jobs:
     - name: Prepare detached HEAD
       run: |
         git merge origin/master
-        git push origin/master
+        git push --set-upstream origin/master
     - name: Run predictions
       run: python predict.py
     - name: Commit changed output
       run: |
         git commit -m "updated predictions" output.csv
-        git push origin/master
+        git push --set-upstream origin/master
 
