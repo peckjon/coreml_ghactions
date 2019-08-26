@@ -30,6 +30,7 @@ jobs:
     - name: Prepare detached HEAD
       run: |
         git rebase origin/master
+        git checkout -b updated_predictions
     - name: Run predictions
       run: python predict.py
     - name: Commit changed output
