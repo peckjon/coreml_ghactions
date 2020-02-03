@@ -94,6 +94,6 @@ Lastly, we commit our changed file(s) back to the repo. This requires some backf
 
 #### Try it yourself
 
-Make sure you are signed up for the [GitHub actions](https://github.com/features/actions) Beta, then clone this repository and commit a change to the input.csv file. Click the "Actions" tab at the top of your repo to examine the run, then check to see if output.csv has changed.
+Read more about [GitHub actions](https://github.com/features/actions), then clone this repository and commit a change to the input.csv file. Click the "Actions" tab at the top of your repo to examine the run, then check to see if output.csv has changed.
 
 Enjoy!  
