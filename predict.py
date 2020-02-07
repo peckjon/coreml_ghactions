@@ -1,9 +1,8 @@
 from coremltools.models import MLModel
 import csv
 
-
 def main():
-    model = MLModel('pricing.mlmodel') #thanks https://github.com/princeSmall/CoreMLModel
+    model = MLModel('pricing.mlmodel')
     with open('input.csv') as input:
         csv_reader = csv.reader(input, delimiter=',')
         with open('output.csv', mode='w') as output:
