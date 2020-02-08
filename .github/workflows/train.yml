@@ -6,11 +6,12 @@ on:
     - .github/workflows/train.yml
     - prices.csv
     - train.py
+    - requirements.txt
 
 jobs:
   build:
 
-    runs-on: macOS-latest
+    runs-on: macos-latest
     strategy:
       max-parallel: 1
       matrix:
