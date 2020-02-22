@@ -27,11 +27,14 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install coremltools
-    - name: Run predictions
-      run: python predict.py
-    - name: Commit changes
+    - name: Commit changed output	    - name: Commit changes
       uses: elstudio/actions-js-build/commit@v2
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        PUSH_BRANCH: 'master'
+      env:	      env:
+        GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}	
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}	        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}	        PUSH_BRANCH: 'master'
+      run: |	
+        git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"	
+        git commit -m "updated predictions" output.csv	
+        git push origin HEAD:master
 
