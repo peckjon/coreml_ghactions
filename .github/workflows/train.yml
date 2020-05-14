@@ -35,7 +35,7 @@ jobs:
       env:
         ACTOR: ${{ secrets.GITHUB_ACTOR }}
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
+        REPO: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
         git remote set-url origin "https://$ACTOR:$TOKEN@github.com/$REPO.git"
         git commit -m "updated model" pricing.mlmodel
