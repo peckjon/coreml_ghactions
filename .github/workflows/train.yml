@@ -35,10 +35,10 @@ jobs:
       env:
         ACTOR: ${{ secrets.GITHUB_ACTOR }}
         TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REPO: peckjon/coreml_ghactions
-        #${{ secrets.GITHUB_REPOSITORY }}
+        REPO: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
-        git remote set-url origin "https://$ACTOR:$TOKEN@github.com/$REPO.git"
+        echo $REPO
+        git remote set-url origin "https://$ACTOR:$TOKEN@github.com/peckjon/coreml_ghactions.git"
         git commit -m "updated model" pricing.mlmodel
         git commit -m "updated predictions" output.csv
         git push origin HEAD:master
