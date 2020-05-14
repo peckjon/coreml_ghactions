@@ -31,15 +31,13 @@ jobs:
       run: python3 train.py
     - name: Run predictions
       run: python3 predict.py
-    - name: Commit changed model and output
-      env:
-        ACTOR: ${{ secrets.GITHUB_ACTOR }}
-        TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        REPO: ${{ secrets.GITHUB_REPOSITORY }}
+    - name: Commit files
       run: |
-        echo $REPO
-        git remote set-url origin "https://$ACTOR:$TOKEN@github.com/peckjon/coreml_ghactions.git"
-        git commit -m "updated model" pricing.mlmodel
-        git commit -m "updated predictions" output.csv
-        git push origin HEAD:master
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Retrained model" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
 
