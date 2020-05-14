@@ -27,9 +27,9 @@ jobs:
     - name: Install dependencies
       run: |
         #python -m pip install --upgrade pip
-        pip3 install coremltools
+        pip install coremltools
     - name: Run predictions
-      run: python3 predict.py
+      run: python predict.py
     - name: Commit changed model and output
       env:
         GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
