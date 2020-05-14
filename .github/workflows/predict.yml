@@ -30,23 +30,12 @@ jobs:
         pip install coremltools
     - name: Run predictions
       run: python predict.py
-    - name: Commit changed model and output
-      shell: bash
-      env:
-        GITHUB_ACTOR: ${{ secrets.GITHUB_ACTOR }}
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
+    - name: Commit files
       run: |
-        echo "Testing:"
-        echo $GITHUB_ACTOR
-        echo $GITHUB_TOKEN
-        echo $GITHUB_REPOSITORY
-        echo "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-        git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
-        #git add pricing.mlmodel
-        git commit -m "updated model" pricing.mlmodel
-        #git add output.csv
-        git commit -m "updated predictions" output.csv
-        git push origin HEAD:master
-
-
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Updated predictions" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
