@@ -2,7 +2,7 @@ name: Log latest release
 on:
   push:
     branches:
-      - master
+      - DISABLED_master
 
 jobs:
   logLatestRelease:
