@@ -23,7 +23,7 @@ jobs:
     - name: Set up Python ${{ matrix.python-version }}
       uses: actions/setup-python@v1
       with:
-        python-version: ${{ matrix.python-version }}
+        #python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         #python -m pip install --upgrade pip
@@ -36,12 +36,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
-        echo "Hello"
-        echo $GITHUB_ACTOR
-        echo $GITHUB_TOKEN
-        echo $GITHUB_REPOSITORY
         git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
+        git add pricing.mlmodel
         git commit -m "updated model" pricing.mlmodel
+        git add output.csv
         git commit -m "updated predictions" output.csv
         git push origin HEAD:master
 
