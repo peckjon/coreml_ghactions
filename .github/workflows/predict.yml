@@ -36,6 +36,10 @@ jobs:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         GITHUB_REPOSITORY: ${{ secrets.GITHUB_REPOSITORY }}
       run: |
+        echo "Hello"
+        echo $GITHUB_ACTOR
+        echo $GITHUB_TOKEN
+        echo $GITHUB_REPOSITORY
         git remote set-url origin "https://$GITHUB_ACTOR:$GITHUB_TOKEN@github.com/$GITHUB_REPOSITORY.git"
         git commit -m "updated model" pricing.mlmodel
         git commit -m "updated predictions" output.csv
