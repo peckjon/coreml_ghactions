@@ -16,6 +16,7 @@ jobs:
     - name: Check python
       run: |
         which python3.7
+        conda install -c anaconda numpy
     - name: Run script
       run: python3.7 jetson_test.py
     - name: Commit files
