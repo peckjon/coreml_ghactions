@@ -13,12 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Install dependencies
+    - name: Check python
       run: |
-        pip3 install numpy
-        which python3
+        which python3.7
     - name: Run script
-      run: python3 jetson_test.py
+      run: python3.7 jetson_test.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
