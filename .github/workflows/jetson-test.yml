@@ -4,6 +4,7 @@ on:
   push:
     paths:
     - .github/workflows/jetson-test.yml
+    - jetson_test.py
 
 jobs:
   build:
