@@ -15,20 +15,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Check python
       run: |
-        /home/peckjon/c4aarch64_installer/bin/pip -V
         /home/peckjon/c4aarch64_installer/bin/python3 -V
-        #/home/peckjon/c4aarch64_installer/bin/pip install pycuda
-    - name: Run script
+        /home/peckjon/c4aarch64_installer/bin/pip freeze
+    - name: Run pycuda
       run: |
           export PATH="/usr/local/cuda/bin:$PATH"
-          #/home/peckjon/c4aarch64_installer/bin/python3 jetson_test.py
-          python3 jetson_test.py
-    - name: Commit files
-      run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
-        git commit -m "Jetson test" -a
-    - name: Push changes
-      uses: ad-m/github-push-action@master
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
+          /home/peckjon/c4aarch64_installer/bin/python3 jetson_test.py
