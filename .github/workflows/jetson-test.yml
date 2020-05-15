@@ -16,6 +16,7 @@ jobs:
     - name: Install dependencies
       run: |
         pip3 install numpy
+        which python3
     - name: Run script
       run: python3 jetson_test.py
     - name: Commit files
