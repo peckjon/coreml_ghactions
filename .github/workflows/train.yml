@@ -11,8 +11,8 @@ on:
 jobs:
   build:
 
-    #runs-on: macos-latest
-    runs-on: self-hosted
+    runs-on: macos-latest
+    #runs-on: self-hosted
     strategy:
       max-parallel: 1
       matrix:
@@ -20,18 +20,18 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    #- name: Set up Python ${{ matrix.python-version }}
-    #  uses: actions/setup-python@v1
-    #  with:
-    #    python-version: ${{ matrix.python-version }}
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v1
+      with:
+        python-version: ${{ matrix.python-version }}
     - name: Install dependencies
       run: |
         #python3 -m pip install --upgrade pip
         pip3 install -r requirements.txt
     - name: Retrain
       run: python3 train.py
-    #- name: Run predictions
-    #  run: python3 predict.py
+    - name: Run predictions
+      run: python3 predict.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
