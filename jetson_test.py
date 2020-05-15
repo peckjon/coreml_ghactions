@@ -1,8 +1,6 @@
 import numpy as np
 import pycuda.gpuarray as gpuarray
-#import pycuda.autoinint
-from pycuda.tools import make_default_context
-make_default_context()
+import pycuda.autoinit
 
 a = np.array([1, 2, 3, 4, 5]).astype(np.float32)
 a_gpu = gpuarray.to_gpu(a)
