@@ -1,0 +1,28 @@
+name: Test jetson nano self-hosted runner
+
+on: 
+  push:
+    paths:
+    - .github/workflows/jetson-test.yml
+
+jobs:
+  build:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Install dependencies
+      run: |
+        pip3 install numpy
+    - name: Run script
+      run: python3 jetson_test.py
+    - name: Commit files
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -m "Jetson test" -a
+    - name: Push changes
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
