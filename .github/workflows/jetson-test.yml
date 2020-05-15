@@ -22,5 +22,5 @@ jobs:
     - name: Run pycuda
       run: |
           export PATH="/usr/local/cuda/bin:$PATH"
-          python3 jetson_test.py
+          python3.7 jetson_test.py
           #/home/peckjon/c4aarch64_installer/bin/
