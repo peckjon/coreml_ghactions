@@ -21,7 +21,8 @@ jobs:
     - name: Run script
       run: |
           export PATH="/usr/local/cuda/bin:$PATH"
-          /home/peckjon/c4aarch64_installer/bin/python3 jetson_test.py
+          #/home/peckjon/c4aarch64_installer/bin/python3 jetson_test.py
+          python3 jetson_test.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
