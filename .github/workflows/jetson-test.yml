@@ -17,7 +17,7 @@ jobs:
       run: |
         /home/peckjon/c4aarch64_installer/bin/python3 -V
         /home/peckjon/c4aarch64_installer/bin/pip freeze
-    #- name: Setup tmate debug session
+    #- name: Setup tmate session
     #  uses: mxschmitt/action-tmate@v2
     - name: Run pycuda
       run: |
