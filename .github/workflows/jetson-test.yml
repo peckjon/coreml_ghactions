@@ -16,10 +16,10 @@ jobs:
     - name: Check python
       run: |
         which python3.7
-        python3.7 -m pip install --upgrade numpy
-        python3.7 -m pip install --upgrade pycuda
+        #python3.7 -m pip install --upgrade numpy
+        #python3.7 -m pip install --upgrade pycuda
     - name: Run script
-      run: python3.7 jetson_test.py
+      run: /home/peckjon/c4aarch64_installer/bin/python3 jetson_test.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
