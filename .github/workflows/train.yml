@@ -11,7 +11,8 @@ on:
 jobs:
   build:
 
-    runs-on: macos-latest
+    #runs-on: macos-latest
+    runs-on: self-hosted
     strategy:
       max-parallel: 1
       matrix:
@@ -29,8 +30,8 @@ jobs:
         pip3 install -r requirements.txt
     - name: Retrain
       run: python3 train.py
-    - name: Run predictions
-      run: python3 predict.py
+    #- name: Run predictions
+    #  run: python3 predict.py
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
