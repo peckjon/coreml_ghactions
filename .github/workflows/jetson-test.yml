@@ -15,9 +15,9 @@ jobs:
     - uses: actions/checkout@v1
     - name: Check python
       run: |
-        which python3.7
-        #python3.7 -m pip install --upgrade numpy
-        #python3.7 -m pip install --upgrade pycuda
+        /home/peckjon/c4aarch64_installer/bin/pip -V
+        /home/peckjon/c4aarch64_installer/bin/python3 -V
+        /home/peckjon/c4aarch64_installer/bin/pip install pycuda
     - name: Run script
       run: /home/peckjon/c4aarch64_installer/bin/python3 jetson_test.py
     - name: Commit files
