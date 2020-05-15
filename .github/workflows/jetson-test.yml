@@ -13,14 +13,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Check python
+    - name: Check system
       run: |
         /home/peckjon/c4aarch64_installer/bin/python3 -V
         /home/peckjon/c4aarch64_installer/bin/pip freeze
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v2
+        echo $PATH
+        whoami
+#     - name: Setup tmate session
+#       uses: mxschmitt/action-tmate@v2
     - name: Run pycuda
       run: |
           export PATH="/usr/local/cuda/bin:$PATH"
-          python3.7 jetson_test.py
-          #/home/peckjon/c4aarch64_installer/bin/
+          /home/peckjon/c4aarch64_installer/bin/python3.7 jetson_test.py
