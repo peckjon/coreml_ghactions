@@ -1,0 +1,27 @@
+name: Test jetson nano self-hosted runner
+
+on: 
+  push:
+    paths:
+    - .github/workflows/jetson-test.yml
+    - gpu_tests/jetson_test.py
+
+jobs:
+  test_jetson_gpu:
+
+    runs-on: self-hosted
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Check system
+      run: |
+        /home/peckjon/c4aarch64_installer/bin/python3 -V
+        /home/peckjon/c4aarch64_installer/bin/pip freeze
+        echo $PATH
+        whoami
+#     - name: Setup tmate session
+#       uses: mxschmitt/action-tmate@v2
+    - name: Run pycuda
+      run: |
+          export PATH="/usr/local/cuda/bin:$PATH"
+          /home/peckjon/c4aarch64_installer/bin/python3.7 gpu_tests/jetson_test.py
