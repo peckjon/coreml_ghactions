@@ -4,7 +4,7 @@ on:
   push:
     paths:
     - .github/workflows/jetson-test.yml
-    - jetson_test.py
+    - gpu_tests/jetson_test.py
 
 jobs:
   test_jetson_gpu:
@@ -24,4 +24,4 @@ jobs:
     - name: Run pycuda
       run: |
           export PATH="/usr/local/cuda/bin:$PATH"
-          /home/peckjon/c4aarch64_installer/bin/python3.7 jetson_test.py
+          /home/peckjon/c4aarch64_installer/bin/python3.7 gpu_tests/jetson_test.py
