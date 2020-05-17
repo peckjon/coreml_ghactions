@@ -7,7 +7,7 @@ on:
     - jetson_test.py
 
 jobs:
-  build:
+  test_jetson_gpu:
 
     runs-on: self-hosted
 
