@@ -48,7 +48,7 @@ __global__ void MatrixMulKernel(float *a, float *b, float *c)
 #  as a consequence this number (squared) can't exceed max_threads,
 #  see http://documen.tician.de/pycuda/util.html#pycuda.tools.DeviceData
 #  for more information on how to get this number for your device
-MATRIX_SIZE = 40
+MATRIX_SIZE = 35
 
 # create two random square matrices
 a_cpu = np.random.randn(MATRIX_SIZE, MATRIX_SIZE).astype(np.float32)
