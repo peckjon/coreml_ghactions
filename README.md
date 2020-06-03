@@ -1,3 +1,5 @@
+[![Actions Panel](https://img.shields.io/badge/actionspanel-enabled-brightgreen)](https://www.actionspanel.app/app/peckjon/coreml_ghactions)
+
 ## Training and Running CoreML Models using GitHub Actions
 
 Apple's [CoreML](https://developer.apple.com/documentation/coreml) provides a way to run model predictions on iOS and OSX. Some parts of the libarary, such as the [model conversion tools](https://developer.apple.com/documentation/coreml/converting_trained_models_to_core_ml), can be run on non-Apple platforms, but the [prediction methods](https://developer.apple.com/documentation/coreml/mlmodel#2880473) will fail unless run on an iPhone (iOS) or Mac (OSX). This can present a problem for datascientists and developers without access to an Apple device.
