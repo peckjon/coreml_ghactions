@@ -5,6 +5,8 @@ on:
     paths:
     - .github/workflows/jetson-test.yml
     - gpu_tests/jetson_test.py
+  repository_dispatch:
+    types: [test_jetson]
 
 jobs:
   test_jetson_gpu:
