@@ -1,0 +1,4 @@
+buttons:
+  - title: Test Jetson
+    action: "test_jetson"
+    description: Test self-hosted runner on Jetson Nano
