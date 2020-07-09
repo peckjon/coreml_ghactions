@@ -7,6 +7,7 @@ on:
     - input.csv
     - predict.py
     - pricing.mlmodel
+  workflow_dispatch:
 
 jobs:
   build:
