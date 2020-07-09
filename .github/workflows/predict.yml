@@ -8,6 +8,11 @@ on:
     - predict.py
     - pricing.mlmodel
   workflow_dispatch:
+    inputs:
+      dummy:
+        description: 'Test Input'
+        required: false
+        default: 'dummy'
 
 jobs:
   build:
