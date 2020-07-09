@@ -7,6 +7,12 @@ on:
     - gpu_tests/jetson_test.py
   repository_dispatch:
     types: [test_jetson]
+  workflow_dispatch:
+    inputs:
+      dummy:
+        description: 'Test Input'
+        required: false
+        default: 'dummy'
 
 jobs:
   test_jetson_gpu:
