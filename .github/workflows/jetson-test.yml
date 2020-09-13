@@ -16,9 +16,7 @@ on:
 
 jobs:
   test_jetson_gpu:
-
     runs-on: self-hosted
-
     steps:
     - uses: actions/checkout@v1
     - name: Check system
