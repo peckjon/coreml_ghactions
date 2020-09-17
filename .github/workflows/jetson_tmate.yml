@@ -1,0 +1,16 @@
+name: Connect tmate session to jestson self-hosted runner
+
+on:
+  workflow_dispatch:
+    inputs:
+      dummy:
+        description: 'Test Input'
+        required: false
+        default: 'dummy'
+
+jobs:
+  test_jetson_gpu:
+    runs-on: self-hosted
+    steps:
+    - name: Setup tmate session
+      uses: mxschmitt/action-tmate@v2
