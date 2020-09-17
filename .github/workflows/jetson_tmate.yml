@@ -9,9 +9,11 @@ on:
         default: 'dummy'
 
 jobs:
-  test_jetson_gpu:
+  connect_tmate:
     runs-on: self-hosted
     steps:
       - uses: actions/checkout@v2
       - name: Setup tmate session
-        uses: mxschmitt/action-tmate@v2
+        uses: mxschmitt/action-tmate@v3
+        with:
+          sudo: false
