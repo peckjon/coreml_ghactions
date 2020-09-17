@@ -12,5 +12,6 @@ jobs:
   test_jetson_gpu:
     runs-on: self-hosted
     steps:
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v2
+      - uses: actions/checkout@v2
+      - name: Setup tmate session
+        uses: mxschmitt/action-tmate@v2
