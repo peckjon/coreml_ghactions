@@ -1,6 +1,8 @@
 name: Test jetson nano self-hosted runner
 
-on: 
+on:
+  schedule:
+    - cron: '0 17 * * *'
   push:
     paths:
     - .github/workflows/jetson-test.yml
