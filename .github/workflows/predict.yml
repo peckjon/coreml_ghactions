@@ -36,6 +36,13 @@ jobs:
         pip install coremltools
     - name: Run predictions
       run: python predict.py
+    - name: write PR comment
+      uses: daohoangson/comment-on-github@v2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        body: |
+          ${{steps.csv-table-output.outputs.markdown-table}}
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
@@ -55,8 +62,3 @@ jobs:
       id: csv-table-output
       with:
         csvinput: ${{ steps.csv.outputs.content }}
-    - name: write PR comment
-      uses: github-actions-up-and-running/pr-comment@v1.0.0
-      with:
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        message: ${{steps.csv-table-output.outputs.markdown-table}}
