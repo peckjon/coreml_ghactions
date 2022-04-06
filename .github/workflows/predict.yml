@@ -50,14 +50,16 @@ jobs:
       uses: juliangruber/read-file-action@v1
       with:
         path: ./prices.csv
-    - name: Write CSV as MD
+    - name: Convert CSV as MD
       uses: petems/csv-to-md-table-action@master
       id: csv-table-output
       with:
         csvinput: ${{ steps.csv.outputs.content }}
-    - uses: mshick/add-pr-comment@v1
-      with:
-        message: |
-          ${{steps.csv-table-output.outputs.markdown-table}}
-        repo-token: ${{ secrets.GITHUB_TOKEN }}
-        allow-repeats: true
+    - name: Run the action # You would run your tests before this using the output to set state/desc
+      uses: Sibz/github-status-action@v1
+      with: 
+        authToken: ${{secrets.GITHUB_TOKEN}}
+        context: 'Predictions'
+        description: ${{steps.csv-table-output.outputs.markdown-table}}
+        state: 'success'
+        sha: ${{github.event.pull_request.head.sha || github.sha}}
