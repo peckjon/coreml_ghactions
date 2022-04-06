@@ -51,7 +51,7 @@ jobs:
       with:
         path: ./prices.csv
     - name: Write CSV as MD
-      uses: petems/csv-to-md-action@master
+      uses: petems/csv-to-md-table-action@master
       id: csv-table-output
       with:
         csvinput: ${{ steps.csv.outputs.content }}
