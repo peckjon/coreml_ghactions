@@ -45,3 +45,19 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Read CSV
+      id: csv
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./prices.csv
+    - name: Write CSV as MD
+      uses: petems/csv-to-md-action@master
+      id: csv-table-output
+      with:
+        csvinput: ${{ steps.csv.outputs.content }}
+    - uses: mshick/add-pr-comment@v1
+      with:
+        message: |
+          ${{steps.csv-table-output.outputs.markdown-table}}
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        allow-repeats: true
