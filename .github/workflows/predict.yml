@@ -48,11 +48,11 @@ jobs:
         csvinput: ${{ steps.csv.outputs.content }}
     - name: write PR comment
       uses: daohoangson/comment-on-github@v2
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          body: |
-            ${{steps.csv-table-output.outputs.markdown-table}}
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        body: |
+          ${{steps.csv-table-output.outputs.markdown-table}}
     - name: Commit files
       run: |
         git config --local user.email "action@github.com"
