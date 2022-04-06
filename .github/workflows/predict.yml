@@ -55,11 +55,8 @@ jobs:
       id: csv-table-output
       with:
         csvinput: ${{ steps.csv.outputs.content }}
-    - name: Run the action # You would run your tests before this using the output to set state/desc
-      uses: Sibz/github-status-action@v1
-      with: 
-        authToken: ${{secrets.GITHUB_TOKEN}}
-        context: 'Predictions'
-        description: ${{steps.csv-table-output.outputs.markdown-table}}
-        state: 'success'
-        sha: ${{github.event.pull_request.head.sha || github.sha}}
+    - name: write PR comment
+      uses: github-actions-up-and-running/pr-comment@v1.0.0
+      with:
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
+        message: ${{steps.csv-table-output.outputs.markdown-table}}
