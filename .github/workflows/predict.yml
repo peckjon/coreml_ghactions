@@ -36,6 +36,16 @@ jobs:
         pip install coremltools
     - name: Run predictions
       run: python predict.py
+    - name: Read CSV
+      id: csv
+      uses: juliangruber/read-file-action@v1
+      with:
+        path: ./prices.csv
+    - name: Convert CSV as MD
+      uses: petems/csv-to-md-table-action@master
+      id: csv-table-output
+      with:
+        csvinput: ${{ steps.csv.outputs.content }}
     - name: write PR comment
       uses: daohoangson/comment-on-github@v2
       env:
@@ -52,13 +62,3 @@ jobs:
       uses: ad-m/github-push-action@master
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
-    - name: Read CSV
-      id: csv
-      uses: juliangruber/read-file-action@v1
-      with:
-        path: ./prices.csv
-    - name: Convert CSV as MD
-      uses: petems/csv-to-md-table-action@master
-      id: csv-table-output
-      with:
-        csvinput: ${{ steps.csv.outputs.content }}
